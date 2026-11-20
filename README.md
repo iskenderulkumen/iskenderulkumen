@@ -1,4 +1,4 @@
-<!-- Üst banner (font: Audiowide, SVG içine gömülü) -->
+<!-- Üst banner (font: Exo 2, SVG içine gömülü) -->
 <p align="center">
   <img src="assets/banner.svg" alt="İskender" width="100%" />
 </p>
