@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" font-family="monospace">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00f0ff"/><stop offset="1" stop-color="#ff2bd6"/>
+    </linearGradient>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1.5" fill="#000" fill-opacity="0.3"/></pattern>
+
+    <!-- YAZILMA EFEKTİ: her satırın önünde genişleyen bir "pencere" (clipPath) var.
+         Pencere 0'dan 560px'e açıldıkça satır soldan sağa beliriyor.
+         14 saniyelik döngü; keyTimes'taki sayılar o satırın ne zaman yazılacağı. -->
+    <clipPath id="c0"><rect x="30" y="48" height="24" width="0"><animate attributeName="width" values="0;0;560;560;0" keyTimes="0;0.02;0.06;0.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c1"><rect x="30" y="74" height="24" width="0"><animate attributeName="width" values="0;0;560;560;0" keyTimes="0;0.09;0.15;0.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c2"><rect x="30" y="98" height="24" width="0"><animate attributeName="width" values="0;0;560;560;0" keyTimes="0;0.16;0.22;0.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c3"><rect x="30" y="122" height="24" width="0"><animate attributeName="width" values="0;0;560;560;0" keyTimes="0;0.23;0.29;0.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c4"><rect x="30" y="146" height="24" width="0"><animate attributeName="width" values="0;0;560;560;0" keyTimes="0;0.30;0.36;0.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c5"><rect x="30" y="170" height="24" width="0"><animate attributeName="width" values="0;0;560;560;0" keyTimes="0;0.37;0.43;0.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="c6"><rect x="30" y="194" height="24" width="0"><animate attributeName="width" values="0;0;560;560;0" keyTimes="0;0.44;0.50;0.96;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+  </defs>
+
+  <!-- Terminal penceresi (köşesi kesik) -->
+  <path d="M14 2 H798 V234 L782 248 H2 V16 Z" fill="#07010f" stroke="url(#edge)" stroke-width="1.5" filter="url(#glow)"/>
+  <line x1="2" y1="34" x2="798" y2="34" stroke="url(#edge)" stroke-opacity="0.5"/>
+  <g filter="url(#glow)"><circle cx="24" cy="18" r="5" fill="#ff2bd6"/><circle cx="42" cy="18" r="5" fill="#ffe600"/><circle cx="60" cy="18" r="5" fill="#00f0ff"/></g>
+  <text x="400" y="23" fill="#9d4edd" font-size="12" text-anchor="middle">iskender@abra: ~</text>
+
+  <!-- Satırlar -->
+  <g font-size="15" xml:space="preserve">
+    <text x="34" y="66" clip-path="url(#c0)"><tspan fill="#ff2bd6">❯ </tspan><tspan fill="#fff">whoami</tspan></text>
+    <text x="34" y="92" clip-path="url(#c1)"><tspan fill="#00f0ff">  İSİM     </tspan><tspan fill="#9d4edd">: </tspan><tspan fill="#fff">İskender</tspan></text>
+    <text x="34" y="116" clip-path="url(#c2)"><tspan fill="#00f0ff">  ROL      </tspan><tspan fill="#9d4edd">: </tspan><tspan fill="#fff">İHA Yazılımı </tspan><tspan fill="#ff2bd6">×</tspan><tspan fill="#fff"> Veri Analizi</tspan></text>
+    <text x="34" y="140" clip-path="url(#c3)"><tspan fill="#00f0ff">  TAKIM    </tspan><tspan fill="#9d4edd">: </tspan><tspan fill="#fff">ABRA · Yazılım Bölümü</tspan></text>
+    <text x="34" y="164" clip-path="url(#c4)"><tspan fill="#00f0ff">  ODAK     </tspan><tspan fill="#9d4edd">: </tspan><tspan fill="#fff">Otonom uçuş · Hedef takip · Uçuş verisi</tspan></text>
+    <text x="34" y="188" clip-path="url(#c5)"><tspan fill="#00f0ff">  VERİ     </tspan><tspan fill="#9d4edd">: </tspan><tspan fill="#fff">SQL · Pandas · NumPy</tspan></text>
+    <text x="34" y="212" clip-path="url(#c6)"><tspan fill="#00f0ff">  ŞU AN    </tspan><tspan fill="#9d4edd">: </tspan><tspan fill="#ffe600">Kendi LLM modelimi eğitiyorum</tspan></text>
+  </g>
+  <!-- Yanıp sönen imleç: tüm satırlar yazıldıktan sonra belirir -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;0.96" calcMode="discrete" dur="14s" repeatCount="indefinite"/>
+    <text x="34" y="236" font-size="15" fill="#ff2bd6">❯</text>
+    <rect x="52" y="223" width="9" height="16" fill="#00f0ff" filter="url(#glow)"><animate attributeName="opacity" values="1;0;1" dur="1s" calcMode="discrete" repeatCount="indefinite"/></rect>
+  </g>
+
+  <!-- Sağda dönen halkalar ve ortasında baş harf -->
+  <g fill="none" filter="url(#glow)">
+    <circle cx="690" cy="140" r="70" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="40 12 6 12">
+      <animateTransform attributeName="transform" type="rotate" from="0 690 140" to="360 690 140" dur="14s" repeatCount="indefinite"/></circle>
+    <circle cx="690" cy="140" r="56" stroke="#ff2bd6" stroke-width="2" stroke-dasharray="70 20">
+      <animateTransform attributeName="transform" type="rotate" from="360 690 140" to="0 690 140" dur="8s" repeatCount="indefinite"/></circle>
+    <circle cx="690" cy="140" r="44" stroke="#9d4edd" stroke-opacity="0.6" pathLength="360" stroke-width="5" stroke-dasharray="1 7"/>
+    <!-- Halkanın üzerinde dolaşan uydu nokta -->
+    <circle cx="690" cy="70" r="4" fill="#ffe600" stroke="none">
+      <animateTransform attributeName="transform" type="rotate" from="0 690 140" to="360 690 140" dur="5s" repeatCount="indefinite"/></circle>
+  </g>
+  <text x="690" y="156" fill="#fff" font-size="46" font-weight="bold" text-anchor="middle" filter="url(#glow2)">İ</text>
+
+  <rect x="2" y="2" width="796" height="246" fill="url(#scan)"/>
+</svg>

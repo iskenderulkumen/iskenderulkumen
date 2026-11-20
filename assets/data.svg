@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" font-family="monospace">
+  <!-- Senaryo (12 saniyelik döngü):
+       1) Soldaki panelde SQL sorgusu yazılır
+       2) Ortada sorgunun sonucu satır satır tabloya düşer
+       3) Sağda pandas ile grafik çizilir, NumPy ile ortalama hesaplanır -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00f0ff"/><stop offset="1" stop-color="#ff2bd6"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="170" x2="0" y2="262" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff2bd6"/><stop offset="1" stop-color="#00f0ff"/>
+    </linearGradient>
+    <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#9d4edd" fill-opacity="0.25"/></pattern>
+
+    <!-- SQL satırlarının yazılma pencereleri -->
+    <clipPath id="q0"><rect x="30" y="66" height="20" width="0"><animate attributeName="width" values="0;0;230;230;0" keyTimes="0;0.02;0.07;0.96;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="q1"><rect x="30" y="88" height="20" width="0"><animate attributeName="width" values="0;0;230;230;0" keyTimes="0;0.07;0.12;0.96;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="q2"><rect x="30" y="110" height="20" width="0"><animate attributeName="width" values="0;0;230;230;0" keyTimes="0;0.12;0.17;0.96;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="q3"><rect x="30" y="132" height="20" width="0"><animate attributeName="width" values="0;0;230;230;0" keyTimes="0;0.17;0.22;0.96;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="q4"><rect x="30" y="154" height="20" width="0"><animate attributeName="width" values="0;0;230;230;0" keyTimes="0;0.22;0.27;0.96;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="p0"><rect x="550" y="66" height="20" width="0"><animate attributeName="width" values="0;0;230;230;0" keyTimes="0;0.52;0.57;0.96;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="p1"><rect x="550" y="88" height="20" width="0"><animate attributeName="width" values="0;0;230;230;0" keyTimes="0;0.57;0.62;0.96;1" dur="12s" repeatCount="indefinite"/></rect></clipPath>
+  </defs>
+
+  <rect width="800" height="300" rx="14" fill="#07010f"/>
+  <rect width="800" height="300" rx="14" fill="url(#dots)"/>
+
+  <!-- Başlık (glitch) -->
+  <g font-size="15" font-weight="bold">
+    <text x="20" y="28" fill="#ff2bd6">DATA_PIPELINE.py<animateTransform attributeName="transform" type="translate" values="0 0;-4 1;2 0;0 0" keyTimes="0;0.88;0.92;0.96" calcMode="discrete" dur="4s" repeatCount="indefinite"/></text>
+    <text x="20" y="28" fill="#00f0ff">DATA_PIPELINE.py<animateTransform attributeName="transform" type="translate" values="0 0;4 -1;-2 0;0 0" keyTimes="0;0.88;0.92;0.96" calcMode="discrete" dur="4s" repeatCount="indefinite"/></text>
+    <text x="20" y="28" fill="#fff">DATA_PIPELINE.py</text>
+  </g>
+  <!-- Hangi adımda olduğumuzu gösteren etiket -->
+  <g font-size="11" text-anchor="end" font-weight="bold" filter="url(#glow)">
+    <text x="780" y="27" fill="#ff2bd6" opacity="0">[1/3] SORGULANIYOR<animate attributeName="opacity" values="1;0" keyTimes="0;0.3" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="780" y="27" fill="#ffe600" opacity="0">[2/3] VERİ ÇEKİLİYOR<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.3;0.5" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="780" y="27" fill="#00f0ff" opacity="0">[3/3] ANALİZ<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;0.96" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  </g>
+
+  <!-- Üç panel -->
+  <g fill="#0a0118" fill-opacity="0.85" stroke="url(#edge)" stroke-opacity="0.8" filter="url(#glow)">
+    <path d="M32 40 H260 V270 L248 282 H20 V52 Z"/>
+    <path d="M292 40 H520 V270 L508 282 H280 V52 Z"/>
+    <path d="M552 40 H780 V270 L768 282 H540 V52 Z"/>
+  </g>
+  <g fill="#00f0ff" font-size="10" font-weight="bold">
+    <text x="34" y="57">// SQL</text><text x="294" y="57">// SONUÇ</text><text x="554" y="57">// PANDAS + NUMPY</text>
+  </g>
+
+  <!-- ===== 1) SQL sorgusu ===== -->
+  <g font-size="12" xml:space="preserve">
+    <text x="34" y="80" clip-path="url(#q0)"><tspan fill="#ff2bd6">SELECT</tspan><tspan fill="#e6e6ff"> drone_id,</tspan></text>
+    <text x="34" y="102" clip-path="url(#q1)"><tspan fill="#e6e6ff">  </tspan><tspan fill="#ffe600">AVG</tspan><tspan fill="#e6e6ff">(irtifa) </tspan><tspan fill="#ff2bd6">AS</tspan><tspan fill="#e6e6ff"> ort,</tspan></text>
+    <text x="34" y="124" clip-path="url(#q2)"><tspan fill="#e6e6ff">  </tspan><tspan fill="#ffe600">MAX</tspan><tspan fill="#e6e6ff">(hiz) </tspan><tspan fill="#ff2bd6">AS</tspan><tspan fill="#e6e6ff"> max_hiz</tspan></text>
+    <text x="34" y="146" clip-path="url(#q3)"><tspan fill="#ff2bd6">FROM</tspan><tspan fill="#00f0ff"> ucuslar</tspan></text>
+    <text x="34" y="168" clip-path="url(#q4)"><tspan fill="#ff2bd6">GROUP BY</tspan><tspan fill="#e6e6ff"> drone_id;</tspan></text>
+  </g>
+  <!-- Sorgu bitince "çalıştırıldı" yazısı -->
+  <text x="34" y="200" fill="#39ff88" font-size="11" opacity="0" filter="url(#glow)">✔ 4 satır, 0.03 sn
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.28;0.96" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <!-- Dekor: veritabanı silindiri -->
+  <g fill="none" stroke="#9d4edd" stroke-width="1.5" filter="url(#glow)">
+    <ellipse cx="140" cy="228" rx="30" ry="8"/>
+    <path d="M110 228 V256 A30 8 0 0 0 170 256 V228"/>
+    <path d="M110 242 A30 8 0 0 0 170 242"/>
+  </g>
+
+  <!-- Paneller arası veri akışı: noktalar soldan sağa kayar -->
+  <g fill="#ff2bd6" filter="url(#glow)">
+    <circle cy="160" r="3"><animate attributeName="cx" values="258;282" dur="0.8s" repeatCount="indefinite"/></circle>
+    <circle cy="160" r="3"><animate attributeName="cx" values="258;282" dur="0.8s" begin="-0.4s" repeatCount="indefinite"/></circle>
+    <circle cy="160" r="3" fill="#00f0ff"><animate attributeName="cx" values="518;542" dur="0.8s" repeatCount="indefinite"/></circle>
+    <circle cy="160" r="3" fill="#00f0ff"><animate attributeName="cx" values="518;542" dur="0.8s" begin="-0.4s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- ===== 2) Sonuç tablosu ===== -->
+  <g font-size="11">
+    <g fill="#ff2bd6" font-weight="bold"><text x="296" y="80">drone_id</text><text x="390" y="80">ort</text><text x="450" y="80">max_hiz</text></g>
+    <line x1="294" y1="88" x2="508" y2="88" stroke="#9d4edd" stroke-opacity="0.6"/>
+    <!-- Satırlar sırayla belirir -->
+    <g fill="#e6e6ff" opacity="0"><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.31;0.96" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="296" y="108" fill="#00f0ff">UAV-01</text><text x="390" y="108">118.4</text><text x="450" y="108">14.2</text></g>
+    <g fill="#e6e6ff" opacity="0"><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.36;0.96" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="296" y="130" fill="#00f0ff">UAV-02</text><text x="390" y="130">96.1</text><text x="450" y="130">12.8</text></g>
+    <g fill="#e6e6ff" opacity="0"><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.41;0.96" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="296" y="152" fill="#00f0ff">UAV-03</text><text x="390" y="152">131.7</text><text x="450" y="152">16.5</text></g>
+    <g fill="#e6e6ff" opacity="0"><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.46;0.96" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="296" y="174" fill="#00f0ff">UAV-04</text><text x="390" y="174">104.9</text><text x="450" y="174">13.1</text></g>
+  </g>
+  <!-- Satır vurgusu: yeni gelen satırın üstünde gezen parlak bant -->
+  <rect x="292" width="218" height="20" fill="#00f0ff" fill-opacity="0.12" stroke="#00f0ff" stroke-opacity="0.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.31;0.5" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="94;94;116;138;160;160" keyTimes="0;0.31;0.36;0.41;0.46;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Dekor: sayı matrisi (değerler titreşir) -->
+  <g font-size="10" fill="#9d4edd" fill-opacity="0.7">
+    <text x="296" y="210">[[0.82 0.13 0.57]<animate attributeName="fill-opacity" values="0.7;0.2;0.7" dur="1.3s" repeatCount="indefinite"/></text>
+    <text x="296" y="224"> [0.44 0.91 0.06]<animate attributeName="fill-opacity" values="0.2;0.7;0.2" dur="1.1s" repeatCount="indefinite"/></text>
+    <text x="296" y="238"> [0.27 0.68 0.39]]<animate attributeName="fill-opacity" values="0.7;0.2;0.7" dur="1.5s" repeatCount="indefinite"/></text>
+    <text x="296" y="262" fill="#00f0ff" fill-opacity="0.8">shape: (4, 3)</text>
+  </g>
+
+  <!-- ===== 3) pandas + NumPy ===== -->
+  <g font-size="11" xml:space="preserve">
+    <text x="554" y="80" clip-path="url(#p0)"><tspan fill="#e6e6ff">df = </tspan><tspan fill="#00f0ff">pd</tspan><tspan fill="#e6e6ff">.</tspan><tspan fill="#ffe600">read_sql</tspan><tspan fill="#e6e6ff">(q, db)</tspan></text>
+    <text x="554" y="102" clip-path="url(#p1)"><tspan fill="#e6e6ff">df.</tspan><tspan fill="#ffe600">plot</tspan><tspan fill="#e6e6ff">.</tspan><tspan fill="#ffe600">bar</tspan><tspan fill="#e6e6ff">(y=</tspan><tspan fill="#39ff88">"ort"</tspan><tspan fill="#e6e6ff">)</tspan></text>
+  </g>
+  <!-- Grafik eksenleri -->
+  <g stroke="#9d4edd" stroke-opacity="0.5"><line x1="570" y1="244" x2="765" y2="244"/><line x1="570" y1="140" x2="570" y2="244"/></g>
+  <!-- Çubuklar: yükseklik = ortalama irtifa x 0.7. Taban y=244 -->
+  <g fill="url(#bar)" filter="url(#glow)">
+    <rect x="585" width="30" height="0" y="244"><animate attributeName="height" values="0;0;83;83;0" keyTimes="0;0.62;0.7;0.96;1" dur="12s" repeatCount="indefinite"/><animate attributeName="y" values="244;244;161;161;244" keyTimes="0;0.62;0.7;0.96;1" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="630" width="30" height="0" y="244"><animate attributeName="height" values="0;0;67;67;0" keyTimes="0;0.64;0.72;0.96;1" dur="12s" repeatCount="indefinite"/><animate attributeName="y" values="244;244;177;177;244" keyTimes="0;0.64;0.72;0.96;1" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="675" width="30" height="0" y="244"><animate attributeName="height" values="0;0;92;92;0" keyTimes="0;0.66;0.74;0.96;1" dur="12s" repeatCount="indefinite"/><animate attributeName="y" values="244;244;152;152;244" keyTimes="0;0.66;0.74;0.96;1" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="720" width="30" height="0" y="244"><animate attributeName="height" values="0;0;73;73;0" keyTimes="0;0.68;0.76;0.96;1" dur="12s" repeatCount="indefinite"/><animate attributeName="y" values="244;244;171;171;244" keyTimes="0;0.68;0.76;0.96;1" dur="12s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#9d4edd" font-size="9" text-anchor="middle"><text x="600" y="257">01</text><text x="645" y="257">02</text><text x="690" y="257">03</text><text x="735" y="257">04</text></g>
+  <!-- Ortalama çizgisi: (118.4+96.1+131.7+104.9)/4 = 112.78 → 112.78 x 0.7 ≈ 79px -->
+  <g opacity="0"><animate attributeName="opacity" values="0;1;0" keyTimes="0;0.8;0.96" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="572" y1="165" x2="765" y2="165" stroke="#ffe600" stroke-dasharray="5 4" filter="url(#glow)"/>
+    <text x="554" y="128" font-size="11" xml:space="preserve"><tspan fill="#00f0ff">np</tspan><tspan fill="#e6e6ff">.</tspan><tspan fill="#ffe600">mean</tspan><tspan fill="#e6e6ff">(df.ort) → </tspan><tspan fill="#ffe600" font-weight="bold">112.78</tspan></text>
+  </g>
+</svg>
