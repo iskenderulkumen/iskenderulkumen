@@ -38,10 +38,7 @@
   <img src="assets/stack.svg" alt="kullandıklarım" width="100%" />
 </p>
 
-<!-- Katkı yılanı: GitHub temasına göre açık/koyu sürüm. Her gün Actions ile üretilir. -->
+<!-- Katkı haritasını tarayan drone: scripts/drone_scan.py her gün Actions ile üretir -->
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/iskenderulkumen/iskenderulkumen/output/github-snake-dark.svg" />
-    <img alt="katkı yılanı" src="https://raw.githubusercontent.com/iskenderulkumen/iskenderulkumen/output/github-snake.svg" />
-  </picture>
+  <img src="https://raw.githubusercontent.com/iskenderulkumen/iskenderulkumen/output/drone-scan.svg" alt="katkı haritası taraması" width="100%" />
 </p>
