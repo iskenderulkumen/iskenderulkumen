@@ -1,9 +1,9 @@
 <!-- Üst banner -->
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:0a0118,50:7b2ff7,100:ff2bd6&height=200&section=header&text=%C4%B0skender&fontSize=60&fontColor=ffffff&animation=fadeIn&desc=%C4%B0HA%20Yaz%C4%B1l%C4%B1m%C4%B1%20%C3%97%20Veri%20Analizi&descAlignY=65)
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:0a0118,50:7b2ff7,100:ff2bd6&height=200&section=header&text=%C4%B0skender&fontSize=60&fontColor=ffffff&animation=fadeIn&desc=Veri%20Bilimi%20%C3%97%20%C4%B0HA%20Yaz%C4%B1l%C4%B1m%C4%B1&descAlignY=65)
 
 <!-- Yazılıyormuş gibi görünen satırlar -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=00F0FF&center=true&vCenter=true&width=600&lines=Merhaba%2C+ben+%C4%B0skender+%F0%9F%91%8B;%C4%B0HA+yaz%C4%B1l%C4%B1m%C4%B1+%C3%97+Veri+analizi+%F0%9F%9A%81;Python+%7C+SQL+%7C+Pandas+%7C+NumPy;Hedef+kilitlendi...+%F0%9F%8E%AF" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=00F0FF&center=true&vCenter=true&width=600&lines=Merhaba%2C+ben+%C4%B0skender+%F0%9F%91%8B;Sakarya+%C3%9Cniversitesi+%C2%B7+Veri+Bilimi+%F0%9F%8E%93;%C4%B0HA+yaz%C4%B1l%C4%B1m%C4%B1+%C3%97+Veri+analizi+%F0%9F%9A%81;Python+%7C+SQL+%7C+Pandas+%7C+NumPy;Hedef+kilitlendi...+%F0%9F%8E%AF" alt="Typing SVG" />
 </p>
 
 <!-- Kimlik kartı (terminal) -->
