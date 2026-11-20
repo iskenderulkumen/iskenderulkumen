@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="130" viewBox="0 0 800 130">
+  <!-- Arka planda kesik çizgili uçuş rotası -->
+  <line x1="0" y1="85" x2="800" y2="85" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="6 10" opacity="0.5">
+    <animate attributeName="stroke-dashoffset" from="0" to="-32" dur="1s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Sabit kanatlı İHA: sağdan sola, yukarıdan geçer -->
+  <g opacity="0.75">
+    <animateTransform attributeName="transform" type="translate" values="880 28; -80 28" dur="12s" repeatCount="indefinite"/>
+    <g transform="scale(0.7)" fill="#8b949e">
+      <path d="M-40 0 L30 -3 Q40 0 30 3 Z"/>          <!-- gövde -->
+      <path d="M-2 -1 L-14 -26 L-6 -26 L10 -1 Z"/>      <!-- üst kanat -->
+      <path d="M-2 1 L-14 26 L-6 26 L10 1 Z"/>          <!-- alt kanat -->
+      <path d="M-36 0 L-44 -10 L-40 -10 L-30 0 Z"/>     <!-- kuyruk -->
+    </g>
+  </g>
+
+  <!-- Quadcopter: soldan sağa uçar -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="-80 80; 880 80" dur="9s" repeatCount="indefinite"/>
+    <!-- Hafif yukarı aşağı salınım -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="1.6s" repeatCount="indefinite"/>
+      <!-- İleri uçarken hafif öne eğilme -->
+      <g transform="rotate(6)">
+        <!-- Pervaneler: rx değeri değişince dönüyormuş gibi görünür -->
+        <ellipse cx="-45" cy="-16" rx="22" ry="3" fill="#36BCF7" opacity="0.8">
+          <animate attributeName="rx" values="22;3;22" dur="0.12s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="45" cy="-16" rx="22" ry="3" fill="#36BCF7" opacity="0.8">
+          <animate attributeName="rx" values="3;22;3" dur="0.12s" repeatCount="indefinite"/>
+        </ellipse>
+        <!-- Motor milleri -->
+        <rect x="-47" y="-15" width="4" height="9" fill="#8b949e"/>
+        <rect x="43" y="-15" width="4" height="9" fill="#8b949e"/>
+        <!-- Kollar -->
+        <rect x="-50" y="-8" width="100" height="5" rx="2.5" fill="#8b949e"/>
+        <!-- Gövde -->
+        <rect x="-18" y="-13" width="36" height="17" rx="6" fill="#36BCF7"/>
+        <!-- Kamera -->
+        <circle cx="0" cy="9" r="5" fill="#8b949e"/>
+        <circle cx="0" cy="9" r="2" fill="#0d1117"/>
+        <!-- İniş ayakları -->
+        <path d="M-12 4 L-20 18 M12 4 L20 18" stroke="#8b949e" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Yanıp sönen LED -->
+        <circle cx="11" cy="-6" r="2.2" fill="#ff4d4d">
+          <animate attributeName="opacity" values="1;0.1;1" dur="0.8s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </g>
+  </g>
+</svg>
