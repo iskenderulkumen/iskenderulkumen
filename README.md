@@ -6,9 +6,9 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Merhaba%2C+ben+%C4%B0skender+%F0%9F%91%8B;Drone+%26+%C4%B0HA+yaz%C4%B1l%C4%B1m%C4%B1+geli%C5%9Ftiriyorum+%F0%9F%9A%81;Python+%7C+ArduPilot+%7C+Otonom+U%C3%A7u%C5%9F;Hedef+kilitlendi...+%F0%9F%8E%AF" alt="Typing SVG" />
 </p>
 
-<!-- Uçan quadcopter + sabit kanatlı İHA -->
+<!-- Drone'dan yer istasyonuna veri akışı -->
 <p align="center">
-  <img src="assets/drone.svg" alt="uçan drone" width="100%" />
+  <img src="assets/telemetry.svg" alt="telemetri akışı" width="100%" />
 </p>
 
 <!-- Radar + hedef takip ekranı -->
@@ -16,9 +16,9 @@
   <img src="assets/hud.svg" alt="radar ve hedef takip" width="100%" />
 </p>
 
-<!-- Formasyon değiştiren drone sürüsü -->
+<!-- Canlı uçuş veri paneli -->
 <p align="center">
-  <img src="assets/swarm.svg" alt="drone sürüsü" width="100%" />
+  <img src="assets/dashboard.svg" alt="uçuş veri paneli" width="100%" />
 </p>
 
 <p align="center">
