@@ -1,5 +1,7 @@
-<!-- Üst banner -->
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:0a0118,50:7b2ff7,100:ff2bd6&height=200&section=header&text=%C4%B0skender&fontSize=60&fontColor=ffffff&animation=fadeIn&desc=Veri%20Bilimi%20%C3%97%20%C4%B0HA%20Yaz%C4%B1l%C4%B1m%C4%B1&descAlignY=65)
+<!-- Üst banner (font: Audiowide, SVG içine gömülü) -->
+<p align="center">
+  <img src="assets/banner.svg" alt="İskender" width="100%" />
+</p>
 
 <!-- Yazılıyormuş gibi görünen satırlar -->
 <p align="center">
