@@ -1,8 +1,3 @@
-<!-- Üst banner (font: Exo 2, SVG içine gömülü) -->
-<p align="center">
-  <img src="assets/banner.svg" alt="İskender" width="100%" />
-</p>
-
 <!-- Yazılıyormuş gibi görünen satırlar -->
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=00F0FF&center=true&vCenter=true&width=600&lines=Merhaba%2C+ben+%C4%B0skender;Sakarya+%C3%9Cniversitesi+%C2%B7+Veri+Bilimi;%C4%B0HA+yaz%C4%B1l%C4%B1m%C4%B1+%C3%97+Veri+analizi;Python+%7C+SQL+%7C+Pandas+%7C+NumPy;Hedef+kilitlendi..." alt="Typing SVG" />
